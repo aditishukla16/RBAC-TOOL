@@ -39,7 +39,6 @@ export async function POST(req: Request) {
   }
 }
 
-// 📄 LIST permissions
 export async function GET() {
   try {
     const permissions = await prisma.permission.findMany({
