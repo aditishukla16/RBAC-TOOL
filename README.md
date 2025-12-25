@@ -1,36 +1,168 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🔐 RBAC Admin Dashboard
 
-## Getting Started
+A Role-Based Access Control (RBAC) system built with Next.js to manage users, roles, and permissions in a secure and scalable way.
 
-First, run the development server:
+📌 What is RBAC?
 
-```bash
+RBAC decides who can do what in an application.
+
+Users are assigned roles
+
+Roles contain permissions
+
+Permissions control allowed actions
+
+This makes access control easy, secure, and organized.
+
+🚀 Features
+
+User Authentication (JWT)
+
+User Management
+
+Role Management
+
+Permission Management
+
+Role–Permission Mapping
+
+User–Role Assignment
+
+Protected API Routes
+
+Admin Dashboard UI
+
+🛠 Tech Stack
+
+Frontend & Backend
+
+Next.js (App Router)
+
+TypeScript
+
+Tailwind CSS
+
+shadcn/ui
+
+Database
+
+PostgreSQL
+
+Prisma ORM
+
+Authentication
+
+JWT
+
+bcrypt
+
+📂 Project Structure
+app/
+├── api/
+│   ├── auth/
+│   ├── users/
+│   ├── roles/
+│   ├── permissions/
+│   └── role-permissions/
+│
+├── dashboard/
+│   ├── users/
+│   ├── roles/
+│   ├── permissions/
+│   └── role-permissions/
+│
+├── components/
+│   ├── layout/
+│   └── ui/
+│
+├── store/
+│   └── rbacStore.ts
+│
+├── hooks/
+├── lib/
+│   └── prisma.ts
+│
+├── middleware.ts
+└── page.tsx
+
+🔧 Environment Variables
+
+Create a .env file:
+
+DATABASE_URL="postgresql://user:password@localhost:5432/rbac_db"
+JWT_SECRET="your-secret-key"
+JWT_EXPIRES_IN="24h"
+
+📦 Installation & Setup
+# Install dependencies
+npm install
+
+# Run database migrations
+npx prisma migrate dev
+npx prisma generate
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📍 API Endpoints
+Authentication
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+POST /api/auth/signup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+POST /api/auth/login
 
-## Learn More
+Users
 
-To learn more about Next.js, take a look at the following resources:
+GET /api/users
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+GET /api/users/:id/roles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+POST /api/users/:id/roles
 
-## Deploy on Vercel
+Roles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+GET /api/roles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+POST /api/roles
+
+PUT /api/roles/:id
+
+DELETE /api/roles/:id
+
+Permissions
+
+GET /api/permissions
+
+POST /api/permissions
+
+PUT /api/permissions/:id
+
+DELETE /api/permissions/:id
+
+Role–Permission
+
+GET /api/roles/:id/permissions
+
+PUT /api/roles/:id/permissions
+
+🔐 Authentication
+
+Protected routes require a JWT token:
+
+Authorization: Bearer <jwt_token>
+
+🚀 Deployment
+
+You can deploy this project on:
+
+Vercel
+
+Render
+
+Railway
+
+Any Node.js hosting platform
+
+📝 License
+
+MIT License
