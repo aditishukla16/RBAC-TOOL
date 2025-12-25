@@ -29,19 +29,19 @@ This keeps access control **simple, secure, and scalable**.
 ---
 ## 🛠 Tech Stack
 
-Frontend & Backend
-Next.js (App Router)
-TypeScript
-Tailwind CSS
-shadcn/ui
+**Frontend & Backend**
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
 
-Database
-PostgreSQL
-Prisma ORM
+**Database**
+- PostgreSQL
+- Prisma ORM
 
-Authentication
-JWT
-bcrypt
+**Authentication**
+- JWT
+- bcrypt
 
 ---
 
