@@ -1,64 +1,94 @@
 # 🔐 RBAC Admin Dashboard
 
-A Role-Based Access Control (RBAC) admin dashboard built with **Next.js App Router**.  
-It helps manage **users, roles, and permissions** in a clean, scalable, and secure way.
+A **Role-Based Access Control (RBAC) Admin Dashboard** for managing users, roles, and permissions in modern web applications.
+
+This project provides a scalable and secure authorization system where access is controlled through well-defined roles instead of assigning permissions individually.
 
 ---
 
-## 📖 What is RBAC?
+## 📚 What is RBAC?
 
-RBAC decides **who can do what** in an application.
+**RBAC (Role-Based Access Control)** is an authorization model that defines:
 
-- Users are assigned **roles**
-- Roles contain **permissions**
-- Permissions define **allowed actions**
+- **Users** → people using the system  
+- **Roles** → collections of permissions (Admin, Editor, Viewer)  
+- **Permissions** → specific allowed actions (create, update, delete, view)
 
-This keeps access control simple and maintainable.
+Instead of assigning permissions directly to each user, users are assigned roles, and roles determine what actions are allowed.  
+This makes the system **secure, maintainable, and scalable**.
 
 ---
 
 ## 🚀 Features
 
-- JWT-based Authentication  
-- User Management  
-- Role Management  
-- Permission Management  
-- Role–Permission Assignment  
-- User–Role Assignment  
-- Protected API Routes  
-- Admin Dashboard UI  
+- JWT-based authentication  
+- Secure password hashing with bcrypt  
+- User management  
+- Role management  
+- Permission management  
+- Role–Permission assignment  
+- User–Role assignment  
+- Protected API routes using middleware  
+- RESTful API architecture  
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack 
 
 **Frontend & Backend**
 - Next.js (App Router)
 - TypeScript
 - Tailwind CSS
-- shadcn/ui
+- shadcn/ui  
 
-**Database**
-- PostgreSQL
-- Prisma ORM
+### Database
+- PostgreSQL  
+- Prisma ORM  
 
-**Authentication**
-- JWT
-- bcrypt
+### Authentication & Security
+- JSON Web Tokens (JWT)  
+- bcrypt  
+
+### Tooling
+- Prisma Migrate  
+- dotenv  
+- Nodemon  
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure (Next.js App Router)
 
+```txt
 app/
-├── api/ # Backend APIs
-├── dashboard/ # Admin dashboard pages
-├── components/ # UI & layouts
-├── store/ # RBAC state management
-├── hooks/ # Custom hooks
-├── lib/ # Prisma & utilities
-├── middleware.ts # Auth guard
-
+├── api/                 # Backend API routes
+│   ├── auth/            # Authentication APIs
+│   ├── roles/           # Role APIs
+│   ├── permissions/     # Permission APIs
+│   └── users/           # User-role APIs
+│
+├── dashboard/           # Admin dashboard pages
+├── roles/               # Roles management UI
+├── permissions/         # Permissions management UI
+├── role-permissions/    # Role–permission assignment UI
+├── signin/              # Login page
+├── signup/              # Signup page
+│
+├── components/          # Reusable UI & layout components
+│   ├── layout/          # Dashboard layout & sidebar
+│   └── ui/              # shadcn/ui components
+│
+├── store/               # Global RBAC state
+├── hooks/               # Custom React hooks
+├── lib/                 # Prisma client & utilities
+│
+├── layout.tsx           # Root layout
+├── page.tsx             # Landing page
+├── globals.css          # Global styles
+│
+middleware.ts            # Route protection (JWT)
+prisma/
+└── schema.prisma        # Database schema
+```
 
 ---
 
@@ -71,10 +101,27 @@ DATABASE_URL=postgresql://user:password@localhost:5432/rbac_db
 JWT_SECRET=your-secret-key
 JWT_EXPIRES_IN=24h
 
-##▶️ Run Locally
+```
+## ▶️ Run Locally
+
+```bash
 npm install
 npx prisma migrate dev
 npm run dev
 
-**📄 License**
-MIT
+```
+
+## 🧪 Testing
+
+```
+Sample test credentials (after signup):
+
+Email: test@example.com
+Password: test1234
+
+```
+
+## 📝 License
+```
+This project is licensed under the MIT License.
+```
