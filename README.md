@@ -1,4 +1,4 @@
-🔐 RBAC Admin Dashboard
+## 🔐 RBAC Admin Dashboard
 
 Enterprise-grade Role-Based Access Control system with advanced security, audit logging, and multi-tenancy support
 
